@@ -20,6 +20,7 @@ jobs :
       - name: install tauri
         uses: actions/tauri-build@v1.0.3
         with: 
+          # 固定tauri的版本号
           tauri-version: "2.0.0"
       - name: install deps
         run: npm install
