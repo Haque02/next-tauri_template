@@ -1,0 +1,29 @@
+# 项目名字
+name: demo
+
+# 触发方式，分支被推送的时候
+on: 
+  push: 
+    branches: [ main ]
+
+# 要执行的具体任务
+jobs : 
+  # 运行在哪个远程服务器
+  build:
+    runs-on: ubuntu-latest
+
+    # 具体到他的每一个任务
+    steps: 
+      # 把当前代码checkout下来
+      - uses: actions/checkout@v2
+      # 每一个任务都有一个名字
+      - name: install tauri
+        uses: actions/tauri-build@v1.0.3
+        with: 
+          tauri-version: "2.0.0"
+      - name: install deps
+        run: npm install
+      - name: build app
+        run: npm tauri build
+      - name: copy dist file with scp
+        uses: app;eboy/scp-action@v0.0.1
