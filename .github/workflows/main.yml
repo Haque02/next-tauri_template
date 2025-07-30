@@ -25,6 +25,4 @@ jobs :
       - name: install deps
         run: npm install
       - name: build app
-        run: npm tauri build
-      - name: copy dist file with scp
-        uses: app;eboy/scp-action@v0.0.1
+        run: npm tauri dev
