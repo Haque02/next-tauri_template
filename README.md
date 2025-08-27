@@ -11,6 +11,7 @@ npx create-next-app@latest
 ## 配置tauri环境
 
 ```bash
+pnpm add -D @tauri-apps/cli@latest
 pnpm tauri init
 ```
 - 一直回车即可
